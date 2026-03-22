@@ -6,7 +6,7 @@ import MatrixTable from './MatrixTable';
 function MatrixContent() {
   const { state } = useMatrixContext();
   return (
-    <div className="main-container">
+    <div className='main-container'>
       <MatrixHeader />
       {state.matrix.length > 0 && <MatrixTable />}
     </div>
@@ -20,6 +20,3 @@ export default function MatrixMain() {
     </MatrixProvider>
   );
 }
-
-
- 

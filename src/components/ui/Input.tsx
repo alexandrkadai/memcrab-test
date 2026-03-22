@@ -6,12 +6,18 @@ interface InputProps {
   max?: number;
 }
 
-export default function Input({ inputPlaceholder, inputValue, onChange, min, max }: InputProps) {
+export default function Input({
+  inputPlaceholder,
+  inputValue,
+  onChange,
+  min,
+  max,
+}: InputProps) {
   return (
     <input
       value={inputValue}
       placeholder={inputPlaceholder}
-      type="number"
+      type='number'
       min={min}
       max={max}
       onChange={onChange}

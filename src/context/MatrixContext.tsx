@@ -3,10 +3,10 @@ import {
   useReducer,
   type Dispatch,
   type ReactNode,
-} from "react";
-import type { MatrixAction } from "../types/context-types";
-import type { MatrixState } from "../types/main-types";
-import { initialState, matrixReducer } from "./matrixReducer";
+} from 'react';
+import type { MatrixAction } from '../types/context-types';
+import type { MatrixState } from '../types/main-types';
+import { initialState, matrixReducer } from './matrixReducer';
 
 export interface MatrixContextValue {
   state: MatrixState;

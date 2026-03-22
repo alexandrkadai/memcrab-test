@@ -13,7 +13,9 @@ export default function MatrixTable() {
   const { matrix, N, X } = state;
 
   const [hoveredCellId, setHoveredCellId] = useState<number | null>(null);
-  const [hoveredSumRowIndex, setHoveredSumRowIndex] = useState<number | null>(null);
+  const [hoveredSumRowIndex, setHoveredSumRowIndex] = useState<number | null>(
+    null,
+  );
 
   const nearestCellIds = useMemo<Set<number>>(() => {
     if (hoveredCellId === null || X === 0) return new Set();
@@ -44,8 +46,8 @@ export default function MatrixTable() {
   }
 
   return (
-    <div className="matrix-wrapper">
-      <table className="matrix-table">
+    <div className='matrix-wrapper'>
+      <table className='matrix-table'>
         <thead>
           <tr>
             <th></th>
@@ -60,7 +62,8 @@ export default function MatrixTable() {
           {matrix.map((row, rowIndex) => {
             const rowSum = calculateRowSum(row);
             const isHoveringSum = hoveredSumRowIndex === rowIndex;
-            const maxInRow = row.length > 0 ? Math.max(...row.map((c) => c.amount)) : 1;
+            const maxInRow =
+              row.length > 0 ? Math.max(...row.map((c) => c.amount)) : 1;
 
             return (
               <tr key={rowIndex}>
@@ -68,7 +71,8 @@ export default function MatrixTable() {
                 {row.map((cell, colIndex) => {
                   const percentValue =
                     rowSum > 0 ? Math.round((cell.amount / rowSum) * 100) : 0;
-                  const heatPercent = maxInRow > 0 ? (cell.amount / maxInRow) * 100 : 0;
+                  const heatPercent =
+                    maxInRow > 0 ? (cell.amount / maxInRow) * 100 : 0;
                   return (
                     <MatrixCell
                       key={cell.id}
@@ -84,17 +88,17 @@ export default function MatrixTable() {
                   );
                 })}
                 <td
-                  className="sum-cell"
+                  className='sum-cell'
                   onMouseEnter={() => setHoveredSumRowIndex(rowIndex)}
                   onMouseLeave={() => setHoveredSumRowIndex(null)}
                 >
                   {rowSum}
                 </td>
-                <td className="action-cell">
+                <td className='action-cell'>
                   <button
-                    className="remove-btn"
+                    className='remove-btn'
                     onClick={() => handleRemoveRow(rowIndex)}
-                    title="Remove row"
+                    title='Remove row'
                   >
                     ✕
                   </button>
@@ -114,11 +118,10 @@ export default function MatrixTable() {
           </tr>
         </tfoot>
       </table>
-      
-      <button className="add-row-btn" onClick={handleAddRow}>
+
+      <button className='add-row-btn' onClick={handleAddRow}>
         + Add Row
       </button>
-      
     </div>
   );
 }

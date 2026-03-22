@@ -15,20 +15,23 @@ export default function MatrixHeader() {
   const xNum = Math.min(maxX, Math.max(0, Number(x) || 0));
 
   function handleGenerate() {
-    dispatch({ type: 'GENERATE_MATRIX', payload: { M: mNum, N: nNum, X: xNum } });
+    dispatch({
+      type: 'GENERATE_MATRIX',
+      payload: { M: mNum, N: nNum, X: xNum },
+    });
   }
 
   return (
-    <div className="header-controls">
+    <div className='header-controls'>
       <Input
-        inputPlaceholder="Rows (M, 0–100)"
+        inputPlaceholder='Rows (M, 0–100)'
         inputValue={m}
         min={0}
         max={100}
         onChange={(e) => setM(e.target.value)}
       />
       <Input
-        inputPlaceholder="Columns (N, 0–100)"
+        inputPlaceholder='Columns (N, 0–100)'
         inputValue={n}
         min={0}
         max={100}
@@ -41,9 +44,7 @@ export default function MatrixHeader() {
         max={maxX}
         onChange={(e) => setX(e.target.value)}
       />
-      <Button buttonText="Generate" buttonAction={handleGenerate} />
+      <Button buttonText='Generate' buttonAction={handleGenerate} />
     </div>
   );
 }
-
-

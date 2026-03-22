@@ -33,11 +33,14 @@ export function findNearestCells(
 ): Set<number> {
   const allCells = matrix.flat().filter((cell) => cell.id !== targetId);
   allCells.sort(
-    (a, b) => Math.abs(a.amount - targetAmount) - Math.abs(b.amount - targetAmount),
+    (a, b) =>
+      Math.abs(a.amount - targetAmount) - Math.abs(b.amount - targetAmount),
   );
   return new Set(allCells.slice(0, count).map((c) => c.id));
 }
 
 export function generateMatrix(M: number, N: number): Cell[][] {
-  return Array.from({ length: M }, () => Array.from({ length: N }, () => createCell()));
+  return Array.from({ length: M }, () =>
+    Array.from({ length: N }, () => createCell()),
+  );
 }
