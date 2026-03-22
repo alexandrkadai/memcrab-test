@@ -1,0 +1,169 @@
+.main-container {
+  margin-top: 40px;
+  padding-bottom: 60px;
+}
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto 24px;
+  padding: 20px 24px;
+  width: fit-content;
+  border: 1px solid var(--accent-border);
+  border-radius: 10px;
+  background: var(--accent-bg);
+
+  input[type='number'] {
+    padding: 8px 12px;
+    border: 1px solid var(--accent-border);
+    border-radius: 6px;
+    font-size: 14px;
+    width: 150px;
+    outline: none;
+    background: var(--bg);
+    color: var(--text-h);
+
+    &:focus {
+      border-color: var(--accent);
+    }
+
+    /* hide spin buttons */
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
+  button {
+    padding: 8px 20px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: opacity 0.15s;
+
+    &:hover {
+      opacity: 0.88;
+    }
+  }
+}
+
+.matrix-wrapper {
+  margin: 32px auto;
+  overflow-x: auto;
+  padding: 0 16px 24px;
+text-align: center;
+  .add-row-btn {
+    margin: 12px auto;
+    padding: 8px 20px;
+    border: 1px solid var(--accent-border);
+    background: var(--accent-bg);
+    color: var(--accent);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition:
+      background 0.15s,
+      color 0.15s;
+
+    &:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+  }
+}
+
+.matrix-table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  font-size: 14px;
+
+  th,
+  td {
+    border: 1px solid var(--border);
+    padding: 8px 14px;
+    text-align: center;
+    white-space: nowrap;
+    color: var(--text-h);
+  }
+
+  thead th {
+    background: var(--code-bg);
+    font-weight: 600;
+  }
+
+  tbody th {
+    background: var(--code-bg);
+    font-weight: 500;
+    text-align: left;
+    min-width: 80px;
+  }
+
+  tfoot th,
+  tfoot td {
+    background: var(--accent-bg);
+    font-weight: 600;
+    color: var(--text-h);
+  }
+
+  .matrix-cell {
+    cursor: pointer;
+    transition: background 0.12s;
+    user-select: none;
+    min-width: 60px;
+
+    &:hover:not(.as-percent) {
+      background: var(--accent-bg);
+    }
+
+    &.highlighted {
+      background: #ffb347 !important;
+      color: #000 !important;
+    }
+
+    &.as-percent {
+      font-weight: 600;
+    }
+  }
+
+  .sum-cell {
+    background: var(--code-bg);
+    font-weight: 700;
+    cursor: default;
+    min-width: 60px;
+
+    &:hover {
+      background: var(--accent-bg);
+      cursor: pointer;
+    }
+  }
+
+  .action-cell {
+    border: none;
+    background: transparent;
+    padding: 4px 6px;
+  }
+
+  .remove-btn {
+    background: none;
+    border: 1px solid #e55;
+    color: #e55;
+    border-radius: 4px;
+    padding: 3px 8px;
+    cursor: pointer;
+    font-size: 12px;
+    transition:
+      background 0.12s,
+      color 0.12s;
+
+    &:hover {
+      background: #e55;
+      color: #fff;
+    }
+  }
+}
